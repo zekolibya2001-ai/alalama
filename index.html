@@ -31,7 +31,7 @@
         /* --- أساسيات الصفحة --- */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
-        html { scroll-behavior: smooth; } /* تمرير ناعم */
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Cairo', sans-serif;
@@ -39,7 +39,7 @@
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
-            padding-top: 70px; /* مسافة عشان الناف بار المثبت ما يغطي المحتوى */
+            padding-top: 70px;
         }
 
         a { text-decoration: none; }
@@ -68,7 +68,6 @@
             align-items: center;
         }
 
-        /* تنسيق الشعار مع النص في البار */
         .nav-logo {
             display: flex;
             align-items: center;
@@ -100,14 +99,7 @@
 
         .nav-links a:hover { color: var(--accent-color); }
         
-        /* تعديل للموبايل */
-        @media (max-width: 768px) {
-            .nav-content { flex-direction: column; gap: 10px; }
-            .nav-links { gap: 15px; font-size: 0.9rem; }
-            body { padding-top: 100px; } /* زيادة المسافة للموبايل */
-        }
-
-        /* --- العناوين الفاصلة للأقسام --- */
+        /* --- العناوين --- */
         .section-padding { padding: 80px 0; }
         
         .section-title {
@@ -125,7 +117,7 @@
 
        /* --- تصميم الهيدر (البطاقة التعريفية) --- */
         header {
-            background-image: url('blogo.jpg'); /* تأكد من وجود هذه الصورة */
+            background-image: url('blogo.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -191,7 +183,7 @@
         .social-links a { color: #888; font-size: 1.4rem; transition: 0.3s; }
         .social-links a:hover { color: var(--accent-color); }
 
-        /* --- شبكة التوزيع --- */
+        /* --- شبكة التوزيع (الكمبيوتر) --- */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -243,97 +235,44 @@
             padding: 30px;
             margin-top: 50px;
         }
+
         /* =========================================
-           تعديلات خاصة للهواتف (Mobile Responsive)
-           ========================================= */
-        /* =========================================
-           تنسيق "شبكي" للهاتف (يحافظ على الشكل الأفقي)
+           تنسيق خاص للهاتف (شبكي ومرتب)
            ========================================= */
         @media (max-width: 768px) {
+            body { padding-top: 70px; font-size: 14px; }
             
-            /* 1. ضبط جسم الصفحة */
-            body {
-                padding-top: 70px;
-                font-size: 14px; /* تصغير الخط العام قليلاً */
-            }
+            /* الناف بار */
+            .nav-content { flex-direction: row !important; justify-content: space-between; padding: 0 10px; }
+            .nav-logo { font-size: 1rem; }
+            .nav-logo img { height: 35px; }
+            .nav-links { gap: 8px; font-size: 0.75rem; }
 
-            /* 2. الناف بار (يبقى أفقياً) */
-            .nav-content {
-                flex-direction: row !important; /* إجبار العناصر تكون بجانب بعض */
-                justify-content: space-between;
-                padding: 0 10px;
-            }
+            /* الشبكة: 2 منتج في كل صف للموبايل */
+            .grid-3 { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
 
-            .nav-logo {
-                font-size: 1rem; /* تصغير اسم الشركة */
-            }
-            .nav-logo img {
-                height: 35px; /* تصغير الشعار */
-            }
-
-            .nav-links {
-                gap: 8px; /* تقليل المسافات بين الروابط */
-                font-size: 0.75rem; /* خط صغير للروابط لتسع الشاشة */
-            }
-
-            /* 3. الشبكة (Grid) - جعل المنتجات 2 بجانب بعض */
-            .grid-3 {
-                grid-template-columns: repeat(2, 1fr) !important; /* عمودين إجبارياً */
-                gap: 10px; /* تقليل الفراغات */
-            }
-
-            /* 4. تنسيق الكروت لتناسب الحجم الصغير */
-            .info-card, .product-card {
-                padding: 15px 10px; /* تقليل الحواف الداخلية */
-            }
-            
-            .product-img {
-                height: 120px; /* تصغير ارتفاع الصورة */
-            }
-            
-            .product-details h4 {
-                font-size: 0.9rem; /* تصغير اسم المنتج */
-            }
+            /* تصغير حجم الكروت */
+            .info-card, .product-card { padding: 15px 10px; }
+            .product-img { height: 120px; }
+            .product-details h4 { font-size: 0.9rem; }
             
             .product-details p, .info-card p {
-                font-size: 0.7rem; /* تصغير الوصف */
+                font-size: 0.7rem;
                 display: -webkit-box;
-                -webkit-line-clamp: 2; /* إظهار سطرين فقط من النص */
+                -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
                 overflow: hidden;
             }
 
-            .info-card i {
-                font-size: 1.8rem; /* تصغير الأيقونات */
-            }
-
-            /* 5. البطاقة التعريفية (الهيدر) */
-            .profile-card {
-                margin-top: 10px;
-                width: 98%; /* عرض كامل تقريباً */
-            }
+            .info-card i { font-size: 1.8rem; }
             
-            .card-body {
-                padding: 60px 10px 20px;
-            }
-
-            .btn-group {
-                flex-direction: row; /* الأزرار بجانب بعض */
-                gap: 5px;
-            }
-            
-            .btn {
-                padding: 8px 12px;
-                font-size: 0.8rem;
-                flex: 1; /* جعل الأزرار متساوية العرض */
-            }
-            
-            .section-title {
-                font-size: 1.5rem;
-                margin-bottom: 30px;
-            }
+            /* البطاقة التعريفية */
+            .profile-card { margin-top: 10px; width: 98%; }
+            .card-body { padding: 60px 10px 20px; }
+            .btn-group { flex-direction: row; gap: 5px; }
+            .btn { padding: 8px 12px; font-size: 0.8rem; flex: 1; }
+            .section-title { font-size: 1.5rem; margin-bottom: 30px; }
         }
-        
     </style>
 </head>
 
@@ -344,14 +283,10 @@
          ========================================= -->
     <nav class="navbar">
         <div class="container nav-content">
-            <!-- الشعار + الاسم -->
             <a href="#home" class="nav-logo">
-                <!-- 🔴 صورة اللوقو في البار (تأكد من اسم الصورة) -->
                 <img src="llogo.png" alt="شعار">
                 <span>العلامة الوطنية</span>
             </a>
-            
-            <!-- روابط التنقل -->
             <ul class="nav-links">
                 <li><a href="#home">الرئيسية</a></li>
                 <li><a href="#about">من نحن</a></li>
@@ -361,27 +296,19 @@
     </nav>
 
     <!-- =========================================
-         القسم الأول: الهيدر والبطاقة التعريفية
+         القسم الأول: الهيدر
          ========================================= -->
-    <!-- تم إضافة id="home" هنا لكي يعمل زر الرئيسية -->
     <header id="home">
         <div class="profile-card">
-            <!-- غلاف البطاقة -->
             <div class="card-header">
-                <!-- دائرة الشعار -->
                 <div class="logo-box">
-                    <!-- 🔴 صورة اللوقو الكبير في البطاقة -->
                     <img src="llogo.png" alt="شعار العلامة الوطنية">
                 </div>
             </div>
-
-            <!-- محتوى البطاقة -->
             <div class="card-body">
                 <h1>العلامة الوطنية</h1>
                 <span class="tagline">جودة .. ثقة .. أصالة</span>
-                <p>
-                    نقدم لعملائنا في ليبيا أجود أنواع المواد الغذائية المنتقاة بعناية عالمية، لنضمن لكم مذاقاً رائعاً وحياة صحية.
-                </p>
+                <p>نقدم لعملائنا في ليبيا أجود أنواع المواد الغذائية المنتقاة بعناية عالمية، لنضمن لكم مذاقاً رائعاً وحياة صحية.</p>
 
                 <div class="btn-group">
                     <a href="tel:+218912188400" class="btn btn-primary">
@@ -393,49 +320,31 @@
                 </div>
 
                 <div class="social-links">
-                    <!-- فيسبوك -->
-                    <a href="https://www.facebook.com/profile.php?id=61566564546420" target="_blank">
-                        <i class="fab fa-facebook"></i>
-                    </a>
-                    
-                    <!-- واتساب: تم إضافة الرابط بناءً على رقمك -->
-                    <a href="https://wa.me/218912188400" target="_blank">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                    
-                    <!-- خريطة (يمكنك وضع رابط قوقل ماب هنا) -->
-                    <a href="#" target="_blank">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61566564546420" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://wa.me/218912188400" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" target="_blank"><i class="fas fa-map-marker-alt"></i></a>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- =========================================
-         القسم الثاني: آليات العمل والقيم (من نحن)
+         القسم الثاني: من نحن
          ========================================= -->
-    <!-- تم إضافة id="about" هنا -->
     <section class="section-padding" id="about">
         <div class="container">
             <h2 class="section-title">لماذا العلامة الوطنية؟</h2>
-            
             <div class="grid-3">
-                <!-- الميزة 1 -->
                 <div class="info-card">
                     <i class="fas fa-shield-alt"></i>
                     <h3>جودة مضمونة</h3>
                     <p>نخضع جميع منتجاتنا لاختبارات جودة صارمة لضمان سلامة وصحة العائلة.</p>
                 </div>
-
-                <!-- الميزة 2 -->
                 <div class="info-card">
                     <i class="fas fa-globe-africa"></i>
                     <h3>معايير عالمية</h3>
                     <p>نستورد أفضل المحاصيل والمواد الغذائية من مصادر موثوقة حول العالم.</p>
                 </div>
-
-                <!-- الميزة 3 -->
                 <div class="info-card">
                     <i class="fas fa-shipping-fast"></i>
                     <h3>شبكة توزيع</h3>
@@ -446,14 +355,15 @@
     </section>
 
     <!-- =========================================
-         القسم الثالث: منتجاتنا (Products)
+         القسم الثالث: منتجاتنا (تم التصحيح والترتيب)
          ========================================= -->
-    <!-- تم إضافة id="products" هنا -->
     <section class="section-padding" id="products" style="background-color: #fff;">
         <div class="container">
             <h2 class="section-title">منتجاتنا المميزة</h2>
             
             <div class="grid-3">
+                <!-- ============= الصف الأول ============= -->
+                
                 <!-- منتج 1 -->
                 <div class="product-card">
                     <div class="product-img">
@@ -486,7 +396,43 @@
                         <p>بطاطا برّاتس نصف مقلية مقرمشة، جاهزة للقلي السريع.</p>
                     </div>
                 </div>
-            </div>
+
+                <!-- ============= الصف الثاني ============= -->
+
+                <!-- منتج 4 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="tahi.png" alt="الطاهي">
+                    </div>
+                    <div class="product-details">
+                        <h4>الطاهي</h4>
+                        <p>منتجات الطاهي من زيت وزبدة تعطي أطباقك نكهة أقوى.</p>
+                    </div>
+                </div>
+
+                <!-- منتج 5 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="llol.jpg" alt="لوقو">
+                    </div>
+                    <div class="product-details">
+                        <h4>بسكويت Logo</h4>
+                        <p>بسكويت لوقو الإيطالي: نكهة فاخرة وقرمشة بطابع إيطالي أصيل.</p>
+                    </div>
+                </div>
+
+                <!-- منتج 6 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="piza.jpg" alt="جبنة">
+                    </div>
+                    <div class="product-details">
+                        <h4>Mozzarella Oldenburger</h4>
+                        <p>قوام ناعم وذوبان رائع يرفع نكهة أطباقك.</p>
+                    </div>
+                </div>
+
+            </div> <!-- نهاية الشبكة grid-3 -->
         </div>
     </section>
 
