@@ -246,75 +246,94 @@
         /* =========================================
            تعديلات خاصة للهواتف (Mobile Responsive)
            ========================================= */
+        /* =========================================
+           تنسيق "شبكي" للهاتف (يحافظ على الشكل الأفقي)
+           ========================================= */
         @media (max-width: 768px) {
             
-            /* 1. تعديل الجسم العام */
+            /* 1. ضبط جسم الصفحة */
             body {
-                padding-top: 90px; /* مسافة للناف بار */
+                padding-top: 70px;
+                font-size: 14px; /* تصغير الخط العام قليلاً */
             }
 
-            /* 2. ترتيب الناف بار (الشعار فوق والروابط تحت) */
+            /* 2. الناف بار (يبقى أفقياً) */
             .nav-content {
-                flex-direction: column; /* يجعل العناصر فوق بعض */
-                gap: 10px;
+                flex-direction: row !important; /* إجبار العناصر تكون بجانب بعض */
+                justify-content: space-between;
+                padding: 0 10px;
+            }
+
+            .nav-logo {
+                font-size: 1rem; /* تصغير اسم الشركة */
+            }
+            .nav-logo img {
+                height: 35px; /* تصغير الشعار */
+            }
+
+            .nav-links {
+                gap: 8px; /* تقليل المسافات بين الروابط */
+                font-size: 0.75rem; /* خط صغير للروابط لتسع الشاشة */
+            }
+
+            /* 3. الشبكة (Grid) - جعل المنتجات 2 بجانب بعض */
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr) !important; /* عمودين إجبارياً */
+                gap: 10px; /* تقليل الفراغات */
+            }
+
+            /* 4. تنسيق الكروت لتناسب الحجم الصغير */
+            .info-card, .product-card {
+                padding: 15px 10px; /* تقليل الحواف الداخلية */
             }
             
-            .nav-links {
-                gap: 15px; /* تقليل المسافة بين الروابط */
-                font-size: 0.9rem; /* تصغير الخط قليلاً */
-                width: 100%;
-                justify-content: center; /* توسيط الروابط */
-                padding-bottom: 5px;
+            .product-img {
+                height: 120px; /* تصغير ارتفاع الصورة */
+            }
+            
+            .product-details h4 {
+                font-size: 0.9rem; /* تصغير اسم المنتج */
+            }
+            
+            .product-details p, .info-card p {
+                font-size: 0.7rem; /* تصغير الوصف */
+                display: -webkit-box;
+                -webkit-line-clamp: 2; /* إظهار سطرين فقط من النص */
+                -webkit-box-orient: vertical;
+                overflow: hidden;
             }
 
-            /* 3. تعديل خلفية الهيدر */
-            header {
-                background-position: center top; /* تركيز الصورة */
-                min-height: 100vh; /* ملء الشاشة */
-                padding: 10px; /* تقليل الحواف */
-                align-items: flex-start; /* رفع البطاقة للأعلى قليلاً */
+            .info-card i {
+                font-size: 1.8rem; /* تصغير الأيقونات */
             }
 
-            /* 4. تعديل البطاقة التعريفية */
+            /* 5. البطاقة التعريفية (الهيدر) */
             .profile-card {
-                width: 95%; /* عرض البطاقة يأخذ أغلب الشاشة */
-                margin-top: 30px; /* مسافة من الأعلى */
+                margin-top: 10px;
+                width: 98%; /* عرض كامل تقريباً */
             }
             
             .card-body {
-                padding: 70px 20px 30px; /* تقليل الحواف الداخلية */
-            }
-            
-            .card-body h1 {
-                font-size: 1.5rem; /* تصغير اسم الشركة */
+                padding: 60px 10px 20px;
             }
 
-            /* 5. تعديل شبكة المنتجات (Grid) */
-            /* جعل المنتجات تظهر بشكل مرتب واحد تلو الآخر */
-            .grid-3 {
-                grid-template-columns: 1fr; /* عمود واحد فقط */
-                gap: 20px; /* مسافة أصغر بين الكروت */
-            }
-
-            /* 6. تعديل العناوين والنصوص */
-            .section-title {
-                font-size: 1.8rem; /* تصغير عنوان القسم */
-                margin-bottom: 30px;
-            }
-            
-            .section-padding {
-                padding: 50px 0; /* تقليل المساحة البيضاء بين الأقسام */
-            }
-            
-            /* 7. تعديل الأزرار لتكون بعرض كامل */
             .btn-group {
                 flex-direction: row; /* الأزرار بجانب بعض */
+                gap: 5px;
             }
+            
             .btn {
-                padding: 10px 15px; /* تصغير حجم الزر قليلاً */
-                font-size: 0.9rem;
+                padding: 8px 12px;
+                font-size: 0.8rem;
+                flex: 1; /* جعل الأزرار متساوية العرض */
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+                margin-bottom: 30px;
             }
         }
+        
     </style>
 </head>
 
